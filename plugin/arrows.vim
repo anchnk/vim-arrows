@@ -3,6 +3,10 @@
 "              Originally forked from: http://stackoverflow.com/a/36653470
 "              Thanks to @limeth
 
+if !exists('g:vim_arrows_resize_amount')
+  let g:vim_arrows_resize_amount = 1
+endif
+
 function! IsEdgeWindowSelected(direction)
   let l:curwindow = winnr()
   exec "wincmd ".a:direction
@@ -57,7 +61,7 @@ function! TmuxResize(direction, amount)
   exec l:action.a:amount
 endfunction
 
-nnoremap <silent> <left> :call TmuxResize('h', 1)<cr>
-nnoremap <silent> <down> :call TmuxResize('j', 1)<cr>
-nnoremap <silent> <up> :call TmuxResize('k', 1)<cr>
-nnoremap <silent> <right> :call TmuxResize('l', 1)<cr>
+nnoremap <silent> <left> :call TmuxResize('h', g:vim_arrows_resize_amount)<cr>
+nnoremap <silent> <down> :call TmuxResize('j', g:vim_arrows_resize_amount)<cr>
+nnoremap <silent> <up> :call TmuxResize('k', g:vim_arrows_resize_amount)<cr>
+nnoremap <silent> <right> :call TmuxResize('l', g:vim_arrows_resize_amount)<cr>
